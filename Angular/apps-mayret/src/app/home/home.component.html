@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Apps Mayret</a>
+</nav>
+
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card " [routerLink]="['/stock']">
+          <div class="card-body">
+            <h5 class="card-title">Consultar Stock Tiendas</h5>
+            <p class="card-text">Consultar el stock agrupado por combinaciones y tiendas.</p>
+            <button [routerLink]="['/stock']" class="btn btn-primary">Abrir App</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      <div class="card " onclick="redirect('/consultarPro');">
+          <div class="card-body">
+            <h5 class="card-title">Consultar Stock Pedidos</h5>
+            <p class="card-text">Consultar el stock total de un producto.</p>
+            <a href="/consultarPro" class="btn btn-primary">Abrir App</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      <div class="card " onclick="redirect('/consultarVentas');">
+          <div class="card-body">
+            <h5 class="card-title">Consultar ventas</h5>
+            <p class="card-text">Mostrar las ventas de un producto en un rango de fechas.</p>
+            <a href="/consultarVentas" class="btn btn-primary">Abrir App</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+      <div class="card " onclick="redirect('/stockBodega');">
+          <div class="card-body">
+            <h5 class="card-title">Stock Bodega</h5>
+            <p class="card-text">Consultar el stock de la Bodega.</p>
+            <a href="/stockBodega" class="btn btn-primary">Abrir App</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      <div class="card " onclick="redirect('/stockNegativo');">
+          <div class="card-body">
+            <h5 class="card-title">Stock Negativo</h5>
+            <p class="card-text">Consultar si existen productos con stock negativo.</p>
+            <a href="/stockNegativo" class="btn btn-primary">Abrir App</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      <div class="card " onclick="redirect('/generarFactura');">
+          <div class="card-body">
+            <h5 class="card-title">Generar factura</h5>
+            <p class="card-text">Generar un pdf con la factura a partir del número de ticket.</p>
+            <a href="/generarFactura" class="btn btn-primary">Abrir App</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

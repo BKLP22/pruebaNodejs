@@ -1,0 +1,55 @@
+<div class="fondo">
+    <div class="container">
+        <div id="header-form">
+            <h1>Consultar stock por referencia</h1>
+            <form id="formBusqueda">
+                <div class="input-group">
+                    <input type="text" id="codigo" placeholder="Referencia" [(ngModel)]="busquedaProducto" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="container p-3">
+                    <button id="" type="button" class="btn btn-primary">Codigo barras</button>
+                    <button id="" type="button" class="btn btn-primary" (click)="getProductosBusqueda(busquedaProducto)">Referencia</button>
+                </div>
+                <div>
+                    <h3>Categorias</h3>
+                    <select name="" id="">
+                        <option *ngFor="let categoria of categorias"  value="{{categoria.id_category}}" [(ngModel)]="categoriaSeleccionada">
+                            {{categoria.name}}
+                        </option>
+                        {{categoriaSeleccionada}}
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div id="tablaResultado">
+            <p>Consulta el stock agrupado por combinaciones y tiendas.</p>
+            <div *ngIf="loading">
+                Cargando datos...
+            </div>
+            <div *ngIf="!loading">
+                <table class="w-100">
+                    <h3>{{productos[0].NOMBRE}}</h3>
+                    <ng-container *ngFor="let producto of productos; let i = index">
+                        <ng-container *ngIf="!isDuplicateCombination(producto, i); else duplicateCombination">
+                            <tr [ngClass]="{'fila-par': i % 2 === 0, 'fila-impar': i % 2 !== 0}">
+                                <td>{{ producto.COMBINACION_TALLA_COLOR }}</td>
+                                <td>{{ producto.TIENDA }}</td>
+                                <td>{{ producto.CANTIDAD }}</td>
+                                <td>{{ producto.PRECIO_CON_IVA }}</td>
+                            </tr>
+                        </ng-container>
+                        <ng-template #duplicateCombination>
+                            <tr [ngClass]="{'fila-par': i % 2 === 0, 'fila-impar': i % 2 !== 0}">
+                                <td></td>
+                                <td>{{ producto.TIENDA }}</td>
+                                <td>{{ producto.CANTIDAD }}</td>
+                                <td>{{ producto.PRECIO_CON_IVA }}</td>
+                            </tr>
+                        </ng-template>
+                    </ng-container>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
